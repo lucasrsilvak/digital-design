@@ -11,7 +11,7 @@ architecture teste of tb_somador is
 
 	generic
 	(
-		DATA_WIDTH : natural := 8
+		DATA_WIDTH : natural := 4
 	);
 
 	port 
@@ -33,7 +33,7 @@ begin
 
  -- As próximas linhas criam os estímulos da simulação,
  -- A letra 'x' indica que os valores a seguir estão expressos em base hexadecimal
- fio_a <= x"0", x"A" after 20 ns, x"2" after 40 ns, x"4" after 60 ns;
- fio_b <= x"0", x"4" after 10 ns, x"3" after 30 ns, x"1" after 50 ns;
+ fio_a <=  b"1110" after 60 ns;
+ fio_b <=  b"0001" after 50 ns;
 
 end teste;
