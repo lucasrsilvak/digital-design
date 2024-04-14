@@ -26,10 +26,25 @@ begin
  -- Instancie o componente "Somador" declarado acima para simulação, conectando-o aos "fios" com os estímulos:
  instancia_fulladder: fulladder port map (Cin=>Cin,Cout=>Cout,x=>x,y=>y,s=>s);
 
- -- As próximas linhas criam os estímulos da simulação,
- -- A letra 'x' indica que os valores a seguir estão expressos em base hexadecimal
- Cin 	<= '0', '1' after 20 ns;
- x		<= '0' , '1'  after 40 ns;
- y		<= '0', '1' after 80 ns;
+s_process :process begin
+  x <= '0';
+  wait for 40 ns;  
+  x <= '1';
+  wait for 40 ns;  
+end process;
+
+cout_process :process begin
+  y <= '0';
+  wait for 20 ns;  
+  y <= '1';
+  wait for 20 ns;  
+end process;
+
+cin_process :process begin
+  Cin <= '0';
+  wait for 10 ns;  
+  Cin <= '1';
+  wait for 10 ns;  
+end process;
 
 end teste;

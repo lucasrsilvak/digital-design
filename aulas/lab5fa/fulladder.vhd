@@ -14,10 +14,12 @@ architecture Behavioral of fulladder is
 begin
     process (Cin, x, y)
     begin
-        if ((x = '0' and y = '0') or (x = '1' and y = '0' and Cin = '0') or (x = '0' and y = '1' and Cin = '0')) then
-            s <= '0';
-        elsif ((x = '1' and y = '1' and Cin = '0') or (x = '0' and y = '0' and Cin = '1') or (x = '0' and y = '1' and Cin = '1') or (x = '1' and y = '0' and Cin = '1')) then
+        if ((x = '0' and y = '0' and Cin = '1') or (x = '1' and y = '0' and Cin = '0') or (x = '0' and y = '1' and Cin = '0')) then
             s <= '1';
+        elsif ((x = '1' and y = '1' and Cin = '0') or (x = '0' and y = '1' and Cin = '1') or (x = '1' and y = '0' and Cin = '1')) then
+            s <= '0';
+		  elsif(x = '1' and y = '1' and Cin = '1') then
+				s <= '1';
         else
             s <= '0';
         end if;
